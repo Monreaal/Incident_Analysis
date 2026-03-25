@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Incidents Dashboard | Sentinel Core</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#b51a1b",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-fixed-variant": "#39456b",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed": "#410002",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "primary": "#0b193c",
+                        "on-surface-variant": "#454652",
+                        "surface-tint": "#515d84",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "primary-container": "#222e52",
+                        "tertiary": "#270054",
+                        "on-secondary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#af80f5",
+                        "tertiary-fixed-dim": "#d7baff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#191c1d",
+                        "outline-variant": "#c6c5d4",
+                        "inverse-primary": "#b9c5f2",
+                        "tertiary-container": "#420484",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#ffdad6",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed": "#0b1a3d",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-fixed-dim": "#b9c5f2",
+                        "outline": "#767683",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#eddcff",
+                        "on-tertiary-fixed-variant": "#5a2a9c",
+                        "on-surface": "#191c1d",
+                        "on-primary-container": "#8a96c0",
+                        "secondary-container": "#d93630",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed": "#280056",
+                        "surface-container-highest": "#e1e3e4"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .architectural-shadow {
+            box-shadow: 0 8px 40px rgba(25, 28, 29, 0.04);
+        }
+        .ghost-border {
+            border: 1px solid rgba(118, 118, 131, 0.15);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #0b193c 0%, #222e52 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav architectural-shadow">
+<div class="flex justify-between items-center px-8 h-16 w-full max-w-[1920px] mx-auto relative">
+<div class="flex items-center gap-8">
+<span class="text-xl font-headline font-bold tracking-tighter text-primary">Sentinel Core</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-headline font-medium text-sm tracking-tight text-slate-500 hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="font-headline font-medium text-sm tracking-tight text-primary border-b-2 border-primary pb-4 mt-4" href="#">Incidents</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-500 hover:text-primary transition-colors" href="#">Billing</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-500 hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-surface-container-low rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-surface-container-low rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxohwViJvKY7T_ka7bk5ibSBPJqeztVHO6F9At0GwpdLc_4r65nL6SEhECbG0-qDucD8GcfZyt1TEnKFSSARUFpoC2tpAMCTb5kBNClQihQA_IgsDT-UcOWjzzcJGI0Oy8ZaoCesotk3J2XnYuCRYpdqPQJJrcWaPsoNyw5XMo1bIOe7RoI3cz6gpE14dcV2o8-zyU3S_vWgO8HJPimgV-hwuY4LX60fYIolk-it40rW05UtRymTGNV86OVdPleEHqUa8vPIvaYqE"/>
+</div>
+</div>
+<div class="bg-outline-variant/30 h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<main class="pt-24 pb-12 px-8 max-w-[1920px] mx-auto min-h-[calc(100vh-80px)]">
+<!-- Header Actions -->
+<div class="flex justify-between items-end mb-10">
+<div class="space-y-1">
+<h1 class="font-headline text-3xl font-bold tracking-tight text-primary">Incidents Dashboard</h1>
+<p class="text-on-surface-variant body-md">Monitor and manage security events across your digital perimeter.</p>
+</div>
+<div class="flex gap-4">
+<div class="relative min-w-[240px]">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high ghost-border rounded-lg text-slate-400">
+<span class="material-symbols-outlined text-sm">search</span>
+<span class="text-sm">No clients found</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-6 py-2.5 primary-gradient text-white font-headline font-bold text-sm rounded-xl architectural-shadow active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-[20px]">add_moderator</span>
+                    Register Incident
+                </button>
+</div>
+</div>
+<!-- Main Content Area: Simplified Center Layout -->
+<div class="max-w-5xl mx-auto py-12">
+<!-- Central Focus Card -->
+<div class="bg-surface-container-lowest rounded-none p-16 min-h-[500px] flex flex-col items-center justify-center text-center architectural-shadow relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-50"></div>
+<div class="relative z-10 max-w-lg">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mx-auto mb-8 border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-4xl text-outline" style="font-variation-settings: 'wght' 200;">shield_with_heart</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4">Welcome to Sentinel Core</h2>
+<p class="text-on-surface-variant body-md leading-relaxed mb-8">
+                        It looks like you haven't added any services yet. Get started by configuring your first service to see your data come to life.
+                    </p>
+<button class="inline-flex items-center gap-2 px-8 py-3 primary-gradient text-white font-headline font-bold rounded-xl architectural-shadow hover:scale-[1.02] transition-transform active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+                        Add New Service
+                    </button>
+</div>
+<!-- Decorative Background Elements -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="absolute -top-10 -left-10 w-48 h-48 bg-secondary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</main>
+<!-- Support/Context Footer -->
+<footer class="max-w-[1920px] mx-auto px-8 py-8 flex justify-between items-center text-on-surface-variant text-xs border-t border-surface-container-high/50">
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="hover:text-primary transition-colors" href="#">System Status</a>
+<a class="hover:text-primary transition-colors" href="#">Security Policy</a>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Sentinel Systems Operational</span>
+</div>
+</footer>
+</body></html>

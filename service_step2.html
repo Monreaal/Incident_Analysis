@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Añadir Posiciones | The Architectural Sentinel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#eddcff",
+              "surface-tint": "#515d84",
+              "surface": "#f8f9fa",
+              "on-surface-variant": "#454652",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#f3f4f5",
+              "on-primary-container": "#8a96c0",
+              "on-secondary-fixed": "#410002",
+              "tertiary-fixed-dim": "#d7baff",
+              "surface-container": "#edeeef",
+              "outline-variant": "#c6c5d4",
+              "primary-fixed-dim": "#b9c5f2",
+              "tertiary": "#270054",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#280056",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#2e3132",
+              "secondary-container": "#d93630",
+              "on-tertiary-fixed-variant": "#5a2a9c",
+              "on-background": "#191c1d",
+              "surface-variant": "#e1e3e4",
+              "surface-bright": "#f8f9fa",
+              "surface-container-highest": "#e1e3e4",
+              "primary-container": "#222e52",
+              "outline": "#767683",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4ab",
+              "on-primary-fixed": "#0b1a3d",
+              "inverse-primary": "#b9c5f2",
+              "surface-container-lowest": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "secondary": "#b51a1b",
+              "on-secondary-container": "#fffbff",
+              "tertiary-container": "#420484",
+              "primary": "#0b193c",
+              "on-tertiary-container": "#af80f5",
+              "on-secondary-fixed-variant": "#93000b",
+              "background": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed-variant": "#39456b",
+              "primary-fixed": "#dbe1ff",
+              "on-surface": "#191c1d",
+              "on-error": "#ffffff",
+              "secondary-fixed": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(24px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e1e3e4;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-sm shadow-slate-900/5">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-headline">The Architectural Sentinel</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="portrait of a professional security executive in a dark suit with a neutral confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU_uOoFqXkd176EkP_YO6PG1NohOxyYyxAAmBhbeCiwxo2o8R0li4tn6HkpgTXw0_syzqrHYXQZykT6l26DlHP09MFmbJZfv1zzILyQcAoJHWVqUYNN5D6GlwGpkxggRVPAys4hDfLrcFdqzTG7enhYLwDTwImeAQXtwd4wrzG92Y3RTI3EqqJ72fePVVpuVUPeTMl1GVyOj3axXCqWNhYNV4UAXqnnPjPuXJnwlxVz9E-9VLQueN37-NeI3S5vgyHMHlQy8IqP00"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-16 bg-slate-100/90 dark:bg-slate-950/90 backdrop-blur-md flex flex-col py-8 gap-2 z-40">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<span class="font-headline font-bold text-[#0b193c] dark:text-white">Configuration Wizard</span>
+</div>
+<p class="text-xs text-slate-500 font-label tracking-wide uppercase">Service Setup</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-[#0b193c] hover:bg-slate-200/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configuración General</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#0b193c] font-bold border-r-2 border-[#0b193c] bg-slate-200/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="place">place</span>
+<span>Añadir Posiciones</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-[#0b193c] hover:bg-slate-200/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Cobertura Ideal</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-[#0b193c] hover:bg-slate-200/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span>Confirmación</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-10 pb-12 min-h-screen bg-surface-container">
+<!-- Header Section -->
+<header class="mb-12 max-w-4xl">
+<h1 class="text-4xl font-headline font-bold text-primary mb-4 tracking-tight">Añadir Posiciones</h1>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                Inicie sus protocolos de seguridad. Defina la identidad del servicio y asócielo con las unidades organizativas apropiadas dentro de la bóveda digital.
+            </p>
+</header>
+<div class="flex flex-col gap-10">
+<!-- Project Section: Especiales -->
+<section class="relative">
+<div class="flex justify-between items-end mb-6">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-8 bg-surface-dim rounded-full"></div>
+<h2 class="text-2xl font-headline font-medium text-on-surface-variant">LOM1</h2>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-300 border border-outline-variant/30 rounded shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                        Add position
+                    </button>
+</div>
+<!-- Empty State / Placeholder for section -->
+<div class="border-2 border-dashed border-outline-variant/30 rounded-xl p-12 flex flex-col items-center justify-center text-center bg-surface-container-low/50">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-outline" data-icon="grid_view">grid_view</span>
+</div>
+<p class="text-on-surface-variant font-medium mb-1">No positions defined for this project</p>
+<p class="text-sm text-outline mb-6">Start by adding a new security position to "Especiales".</p>
+</div>
+</section>
+
+<!-- Project Section: Especiales -->
+<section class="relative">
+<div class="flex justify-between items-end mb-6">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-8 bg-surface-dim rounded-full"></div>
+<h2 class="text-2xl font-headline font-medium text-on-surface-variant">Especiales</h2>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-300 border border-outline-variant/30 rounded shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                        Add position
+                    </button>
+</div>
+<!-- Empty State / Placeholder for section -->
+<div class="border-2 border-dashed border-outline-variant/30 rounded-xl p-12 flex flex-col items-center justify-center text-center bg-surface-container-low/50">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-outline" data-icon="grid_view">grid_view</span>
+</div>
+<p class="text-on-surface-variant font-medium mb-1">No positions defined for this project</p>
+<p class="text-sm text-outline mb-6">Start by adding a new security position to "Especiales".</p>
+</div>
+</section>
+<!-- Bottom Action: Add Project -->
+<div class="mt-4 flex justify-center">
+<button class="group flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl shadow-lg hover:shadow-primary/20 transition-all duration-300 active:scale-[0.98]">
+<div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</div>
+<span class="font-headline font-bold tracking-tight">Add Project</span>
+</button>
+</div>
+</div>
+
+<!-- Sticky Footer Navigation for Wizard -->
+<footer class="fixed bottom-0 left-64 right-0 h-20 bg-white/60 backdrop-blur-xl flex items-center justify-between px-10 border-t border-outline-variant/10 z-30">
+<div class="flex items-center gap-4">
+<span class="text-xs font-label font-bold text-outline tracking-widest uppercase">Step 02 / 04</span>
+<div class="flex gap-1">
+<div class="w-8 h-1 bg-primary rounded-full"></div>
+<div class="w-8 h-1 bg-primary rounded-full"></div>
+<div class="w-8 h-1 bg-outline-variant/30 rounded-full"></div>
+<div class="w-8 h-1 bg-outline-variant/30 rounded-full"></div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 text-primary font-bold hover:bg-surface-container-high transition-colors rounded">
+                    Back
+                </button>
+<button class="px-8 py-2 bg-primary text-white font-bold rounded-xl shadow-md hover:translate-y-[-2px] transition-all">
+                    Next Step
+                </button>
+</div>
+</footer>
+</main>
+</body></html>
